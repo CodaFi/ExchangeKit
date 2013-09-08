@@ -42,3 +42,5 @@ typedef void (^EXKWebAuthCompletionHandler)(BOOL success, NSError *error); // se
 typedef void (^EXKClientCompletionBlock)(id responseObject, NSError *error);
 typedef void (^AFNetworkingSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^AFNetworkingFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
+
+typedef NSString* EXKSortingCriterion;

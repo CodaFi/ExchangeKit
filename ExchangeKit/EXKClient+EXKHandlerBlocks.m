@@ -93,8 +93,6 @@
 
 - (AFNetworkingFailureBlock)failureHandlerForClientHandler:(EXKClientCompletionBlock)handler {
 	return ^(AFHTTPRequestOperation *operation, NSError *error) {
-		EXKAPIResponse *response = error.userInfo[kEXKAPIResponseKey];
-		
 		if (handler) {
 			handler(nil, error);
 		}

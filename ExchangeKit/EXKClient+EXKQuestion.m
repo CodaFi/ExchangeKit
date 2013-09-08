@@ -19,7 +19,7 @@ NSString *const EXKMonthCriteria = @"month";
 
 @implementation EXKClient (EXKQuestion)
 
-- (EXKJSONRequestOperation *)fetchAllQuestionsWithSortingCriteria:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
+- (EXKJSONRequestOperation *)fetchAllQuestionsUsingSortingCriterion:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
 	NSParameterAssert(criteria != nil);
 	return [self enqueueGETPath:@"questions"
 					 parameters:@{ @"site" : @"stackoverflow", @"access_token" : self.accessToken, @"key" : self.apiKey, @"order" : @"desc", @"sort" : criteria,  @"filter" : @"withbody" }
@@ -28,11 +28,11 @@ NSString *const EXKMonthCriteria = @"month";
 	
 }
 
-- (EXKJSONRequestOperation *)fetchAllQuestionsTaggedWith:(EXKTag *)tag withSortingCriteria:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
-	return [self fetchAllQuestionsWithTagName:tag.name withSortingCriteria:criteria completion:completionHandler];
+- (EXKJSONRequestOperation *)fetchAllQuestionsTaggedWith:(EXKTag *)tag usingSortingCriterion:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
+	return [self fetchAllQuestionsWithTagName:tag.name usingSortingCriterion:criteria completion:completionHandler];
 }
 
-- (EXKJSONRequestOperation *)fetchAllQuestionsWithTagName:(NSString *)tag withSortingCriteria:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
+- (EXKJSONRequestOperation *)fetchAllQuestionsWithTagName:(NSString *)tag usingSortingCriterion:(NSString *)criteria completion:(EXKClientCompletionBlock)completionHandler {
 	NSParameterAssert(criteria != nil);
 	NSParameterAssert(tag != nil);
 	return [self enqueueGETPath:@"questions"
